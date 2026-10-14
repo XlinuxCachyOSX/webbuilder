@@ -21,6 +21,6 @@
     "lint": "npm run lint:js && npm run lint:html"
   },
   "devDependencies": {
-    "html-validate": "^9.0.0"
+    "html-validate": "^11.16.2"
   }
 }
