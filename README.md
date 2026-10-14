@@ -3,7 +3,6 @@
 > Creatore di siti web drag & drop, gratis e open source, con generazione **AI locale** (Ollama). Nessun server, nessun account, nessun costo.
 
 [![CI](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/ci.yml/badge.svg)](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/ci.yml)
-[![Deploy](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/deploy-pages.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/XlinuxCachyOSX/webbuilder/pulls)
 
@@ -82,8 +81,7 @@ webbuilder/
 │   └── structure.test.js      # Test di struttura (node --test)
 ├── .github/
 │   ├── workflows/
-│   │   ├── ci.yml             # Test + lint ad ogni push/PR
-│   │   └── deploy-pages.yml   # Deploy automatico su GitHub Pages
+│   │   └── ci.yml             # Test + lint ad ogni push/PR
 │   ├── ISSUE_TEMPLATE/        # Template per bug e feature request
 │   ├── PULL_REQUEST_TEMPLATE.md
 │   └── dependabot.yml         # Aggiornamenti automatici dipendenze
@@ -113,7 +111,9 @@ npm start          # server locale su :8000
 
 ## Pubblicare il sito (hosting gratuito)
 
-Il progetto è statico: carica i file su **GitHub Pages**, **Cloudflare Pages**, **Netlify**, **Vercel** e altri. Con il workflow incluso, il deploy su GitHub Pages è automatico ad ogni push su `main` (attiva prima *Settings → Pages → Source: GitHub Actions*).
+Il progetto è statico: carica i file su **Netlify**, **Cloudflare Pages**, **GitHub Pages**, **Vercel** e altri.
+
+Il metodo più veloce è **Netlify Drop**: trascina la cartella su https://app.netlify.com/drop e ottieni subito un link.
 
 Guida completa per ogni piattaforma: [`DEPLOY.md`](DEPLOY.md).
 
