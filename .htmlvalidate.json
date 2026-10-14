@@ -1,0 +1,12 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-inline-style": "off",
+    "no-trailing-whitespace": "off",
+    "attr-quotes": "off",
+    "void-style": "off",
+    "no-redundant-role": "off",
+    "wcag/h30": "off",
+    "wcag/h32": "off"
+  }
+}

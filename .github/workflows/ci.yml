@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    name: Test e lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Controllo sintassi JavaScript
+        run: node --check app.js
+
+      - name: Test struttura
+        run: node --test
+
+      - name: Installa dev tools
+        run: npm install
+
+      - name: Lint HTML (consigliato)
+        continue-on-error: true
+        run: npx html-validate index.html
