@@ -14,15 +14,31 @@ Creatore di siti web drag & drop con generazione AI locale (Ollama).
 
 ## 2. Installazione in locale
 
-### Opzione A — Semplice (consigliata)
+### Opzione A — Semplice (senza server)
 1. Apri `index.html` con doppio click.
 2. Il builder manuale funziona subito.
    ⚠️ La funzione AI **non** funziona da `file://` (bloccata per CORS).
 
 ### Opzione B — Con server locale (per usare l'AI)
+
+**Modo rapido** — doppio click sullo script del tuo sistema:
+
+| Sistema | File da avviare |
+|---------|-----------------|
+| Windows | `start.bat` |
+| macOS | `start.command` |
+| Linux | `start.sh` |
+
+Lo script avvia il server e apre il browser su http://localhost:8000.
+
+**Modo manuale** (qualsiasi sistema con Node.js):
 ```bash
-cd webbuilder
-python3 -m http.server 8000
+node serve.js      # oppure: npm start
+```
+
+**Modo manuale** (qualsiasi sistema con Python 3):
+```bash
+python3 -m http.server 8000     # su Windows: python -m http.server 8000
 ```
 Apri: **http://localhost:8000** (oppure `http://127.0.0.1:8000`)
 
@@ -49,11 +65,23 @@ ollama pull qwen2.5-coder:7b   # il migliore per generare HTML
 
 ### Avvia Ollama consentendo l'origine del sito
 In locale (http://localhost:8000) di solito funziona già. Per sicurezza:
+
+**Linux / macOS (terminal):**
 ```bash
 OLLAMA_ORIGINS=* ollama serve
 ```
 
-Se usi il servizio systemd:
+**Windows (PowerShell):**
+```powershell
+$env:OLLAMA_ORIGINS="*"; ollama serve
+```
+
+**Windows (CMD):**
+```cmd
+set OLLAMA_ORIGINS=* && ollama serve
+```
+
+Se usi il servizio systemd (Linux):
 ```bash
 sudo systemctl edit ollama
 ```
@@ -66,6 +94,18 @@ Poi:
 ```bash
 sudo systemctl restart ollama
 ```
+
+**Impostare OLLAMA_ORIGINS in modo permanente (Windows):**
+```cmd
+setx OLLAMA_ORIGINS "*"
+```
+Poi chiudi e riavvia Ollama dal menu della tray (o riavvia il PC).
+
+**Impostare OLLAMA_ORIGINS in modo permanente (macOS, app Ollama):**
+```bash
+launchctl setenv OLLAMA_ORIGINS "*"
+```
+Poi riavvia l'app Ollama.
 
 ---
 
@@ -106,6 +146,7 @@ Per permettere la connessione, chi visita deve avviare Ollama così:
 ```bash
 OLLAMA_ORIGINS=* ollama serve
 ```
+Su Windows: `setx OLLAMA_ORIGINS "*"` e riavvia Ollama.
 
 **Sicurezza:** `OLLAMA_ORIGINS=*` permette a *qualsiasi* sito di contattare il tuo Ollama locale.
 È comodo ma meno sicuro. Per limitare, usa l'origine esatta:
@@ -131,12 +172,16 @@ Solo la generazione AI richiede Ollama installato sul computer del visitatore.
 
 ```
 webbuilder/
-├── index.html    # Interfaccia
-├── style.css     # Stili
-├── app.js        # Logica + AI
-├── README.md     # Guida base
-├── DEPLOY.md     # Questa guida
-└── LICENSE       # MIT
+├── index.html         # Interfaccia
+├── style.css          # Stili
+├── app.js             # Logica + AI
+├── serve.js           # Server statico cross-platform (Node)
+├── start.bat          # Avvio rapido Windows
+├── start.command      # Avvio rapido macOS
+├── start.sh           # Avvio rapido Linux
+├── README.md          # Guida base
+├── DEPLOY.md          # Questa guida
+└── LICENSE            # MIT
 ```
 
 ## 8. Licenza

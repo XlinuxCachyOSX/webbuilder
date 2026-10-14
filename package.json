@@ -13,10 +13,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "python3 -m http.server 8000",
-    "serve": "python3 -m http.server 8000",
+    "start": "node serve.js",
+    "serve": "node serve.js",
     "test": "node --test",
-    "lint:js": "node --check app.js",
+    "lint:js": "node --check app.js && node --check serve.js",
     "lint:html": "html-validate index.html",
     "lint": "npm run lint:js && npm run lint:html"
   },

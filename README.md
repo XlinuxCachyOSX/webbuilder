@@ -2,11 +2,10 @@
 
 > Creatore di siti web drag & drop, gratis e open source, con generazione **AI locale** (Ollama). Nessun server, nessun account, nessun costo.
 
-<!-- Sostituisci TUOUTENTE col tuo username GitHub dopo la pubblicazione -->
-[![CI](https://github.com/TUOUTENTE/webbuilder/actions/workflows/ci.yml/badge.svg)](https://github.com/TUOUTENTE/webbuilder/actions/workflows/ci.yml)
-[![Deploy](https://github.com/TUOUTENTE/webbuilder/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/TUOUTENTE/webbuilder/actions/workflows/deploy-pages.yml)
+[![CI](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/ci.yml/badge.svg)](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/ci.yml)
+[![Deploy](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/XlinuxCachyOSX/webbuilder/actions/workflows/deploy-pages.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/TUOUTENTE/webbuilder/pulls)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/XlinuxCachyOSX/webbuilder/pulls)
 
 Trascina elementi, componi la pagina, oppure descrivi il sito in una frase e lascia che l'AI lo costruisca. Poi esporti HTML o ZIP e lo pubblichi dove vuoi.
 
@@ -21,23 +20,35 @@ Apri `index.html` con un doppio click. Il builder manuale funziona immediatament
 
 ### 2. Modalità completa (consigliata)
 ```bash
-# clona
-git clone https://github.com/TUOUTENTE/webbuilder.git
+git clone https://github.com/XlinuxCachyOSX/webbuilder.git
 cd webbuilder
-
-# avvia un server locale (una delle due)
-python3 -m http.server 8000      # oppure:  npm start
+npm start          # oppure: node serve.js
 ```
-Apri **http://localhost:8000**.
+Apri **http://localhost:8000** (il browser si apre da solo).
+
+**Avvio rapido senza terminale** (il server parte e apre il browser):
+
+| Sistema | Come avviare |
+|---------|--------------|
+| **Windows** | doppio click su `start.bat` |
+| **macOS** | doppio click su `start.command` |
+| **Linux** | `./start.sh` (oppure doppio click) |
+
+> Gli script usano **Node.js** se presente, altrimenti ripiegano su **Python 3**. Installane almeno uno: [Node.js](https://nodejs.org) o [Python](https://python.org).
 
 ### 3. Abilita la generazione AI (opzionale, gratis)
 ```bash
 # installa Ollama (una volta sola): https://ollama.com/download
 ollama pull qwen2.5-coder:7b     # il migliore per generare HTML
-OLLAMA_ORIGINS=* ollama serve
 ```
+Poi avvia Ollama consentendo l'origine locale:
+- **Linux/macOS:** `OLLAMA_ORIGINS=* ollama serve`
+- **Windows (PowerShell):** `$env:OLLAMA_ORIGINS="*"; ollama serve`
+
 Nel builder: **Genera con AI** → scegli il modello → scrivi il prompt → **Genera**.
 Dettagli completi in [`DEPLOY.md`](DEPLOY.md).
+
+> Il builder **manuale** (drag & drop) funziona su qualsiasi sistema operativo, anche senza Ollama. Serve solo un browser.
 
 ---
 
@@ -65,6 +76,8 @@ webbuilder/
 ├── index.html                 # Interfaccia dell'editor
 ├── style.css                  # Stili
 ├── app.js                     # Logica drag & drop, export e AI
+├── serve.js                   # Server statico cross-platform (Node, zero dipendenze)
+├── start.bat / start.command / start.sh   # Avvio rapido per Windows/macOS/Linux
 ├── test/
 │   └── structure.test.js      # Test di struttura (node --test)
 ├── .github/

@@ -20,7 +20,7 @@ jobs:
           node-version: 20
 
       - name: Controllo sintassi JavaScript
-        run: node --check app.js
+        run: node --check app.js && node --check serve.js
 
       - name: Test struttura
         run: node --test
