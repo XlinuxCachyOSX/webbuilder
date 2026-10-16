@@ -458,7 +458,7 @@ function createElement(type) {
             div.innerHTML = '<div style="height: 3rem;"></div>';
             break;
         case 'video':
-            div.innerHTML = '<div style="position:relative;padding-bottom:56.25%;height:0;border-radius:0.5rem;overflow:hidden;background:#0f172a;"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allowfullscreen title="Video"></iframe></div>';
+            div.innerHTML = '<div style="position:relative;padding-bottom:56.25%;height:0;border-radius:0.5rem;overflow:hidden;background:#0f172a;"><iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" style="position:absolute;inset:0;width:100%;height:100%;border:0;" allowfullscreen title="Video"></iframe></div>';
             break;
         case 'columns':
             div.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;"><div contenteditable="true" style="padding:1.5rem;background:#f8fafc;border-radius:0.5rem;"><h3 style="margin-bottom:.5rem;">Colonna 1</h3><p>Testo della prima colonna.</p></div><div contenteditable="true" style="padding:1.5rem;background:#f8fafc;border-radius:0.5rem;"><h3 style="margin-bottom:.5rem;">Colonna 2</h3><p>Testo della seconda colonna.</p></div></div>';
