@@ -38,6 +38,16 @@
                     Salva
                 </button>
                 <span class="btn-divider"></span>
+                <button class="btn btn-icon" id="codeBtn" title="Vedi/codice HTML (Ctrl+E)">
+                    <i class="bi bi-code-slash"></i>
+                </button>
+                <button class="btn btn-icon" id="themeBtn" title="Tema scuro">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                <button class="btn btn-icon" id="helpBtn" title="Scorciatoie (?)">
+                    <i class="bi bi-keyboard"></i>
+                </button>
+                <span class="btn-divider"></span>
                 <button class="btn btn-ai" id="aiBtn">
                     <i class="bi bi-stars"></i>
                     Genera con AI
@@ -77,6 +87,10 @@
                         <i class="bi bi-gear"></i>
                         Impostazioni
                     </button>
+                    <button class="nav-btn" data-tab="layers">
+                        <i class="bi bi-list-nested"></i>
+                        Livelli
+                    </button>
                     <button class="nav-btn" data-tab="style">
                         <i class="bi bi-palette"></i>
                         Stile
@@ -87,6 +101,7 @@
                     <!-- Elements Tab -->
                     <div class="tab-content active" id="elements">
                         <h3>Elementi Base</h3>
+                        <input type="search" id="elementSearch" class="form-control" placeholder="Cerca elemento o blocco..." style="margin-bottom:1rem;">
                         <div class="element-list">
                             <div class="element-item" draggable="true" data-element="heading">
                                 <i class="bi bi-type-h1"></i>
@@ -128,6 +143,30 @@
                                 <i class="bi bi-arrows-vertical"></i>
                                 <span>Spazio</span>
                             </div>
+                            <div class="element-item" draggable="true" data-element="video">
+                                <i class="bi bi-camera-video"></i>
+                                <span>Video</span>
+                            </div>
+                            <div class="element-item" draggable="true" data-element="columns">
+                                <i class="bi bi-columns-gap"></i>
+                                <span>Colonne</span>
+                            </div>
+                            <div class="element-item" draggable="true" data-element="badge">
+                                <i class="bi bi-patch-check"></i>
+                                <span>Badge</span>
+                            </div>
+                            <div class="element-item" draggable="true" data-element="quote">
+                                <i class="bi bi-quote"></i>
+                                <span>Citazione</span>
+                            </div>
+                            <div class="element-item" draggable="true" data-element="code">
+                                <i class="bi bi-code-square"></i>
+                                <span>Codice</span>
+                            </div>
+                            <div class="element-item" draggable="true" data-element="map">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>Mappa</span>
+                            </div>
                         </div>
                     </div>
 
@@ -135,6 +174,10 @@
                     <div class="tab-content" id="blocks">
                         <h3>Blocchi Pronti</h3>
                         <div class="block-list">
+                            <div class="block-item" draggable="true" data-block="navbar">
+                                <div class="block-preview navbar-prev"><div class="block-box small"></div><div class="block-line medium"></div></div>
+                                <span>Navbar</span>
+                            </div>
                             <div class="block-item" draggable="true" data-block="hero">
                                 <div class="block-preview">
                                     <div class="block-line long"></div>
@@ -151,6 +194,61 @@
                                 </div>
                                 <span>Caratteristiche</span>
                             </div>
+                            <div class="block-item" draggable="true" data-block="stats">
+                                <div class="block-preview grid-3 dark">
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                </div>
+                                <span>Numeri</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="testimonial">
+                                <div class="block-preview">
+                                    <div class="block-line"></div>
+                                    <div class="block-line medium"></div>
+                                    <div class="block-line short"></div>
+                                </div>
+                                <span>Recensioni</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="team">
+                                <div class="block-preview grid-3">
+                                    <div class="block-box small round"></div>
+                                    <div class="block-box small round"></div>
+                                    <div class="block-box small round"></div>
+                                </div>
+                                <span>Team</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="faq">
+                                <div class="block-preview">
+                                    <div class="block-line long"></div>
+                                    <div class="block-line long"></div>
+                                    <div class="block-line long"></div>
+                                </div>
+                                <span>FAQ</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="cta">
+                                <div class="block-preview cta">
+                                    <div class="block-line long light"></div>
+                                    <div class="block-box light"></div>
+                                </div>
+                                <span>Invito all'azione</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="newsletter">
+                                <div class="block-preview dark">
+                                    <div class="block-line medium light"></div>
+                                    <div class="block-box full light"></div>
+                                </div>
+                                <span>Newsletter</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="countdown">
+                                <div class="block-preview dark">
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                </div>
+                                <span>Conto alla rovescia</span>
+                            </div>
                             <div class="block-item" draggable="true" data-block="contact">
                                 <div class="block-preview">
                                     <div class="block-line"></div>
@@ -158,6 +256,22 @@
                                     <div class="block-box full"></div>
                                 </div>
                                 <span>Contatti</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="gallery">
+                                <div class="block-preview grid-3">
+                                    <div class="block-box small"></div>
+                                    <div class="block-box small"></div>
+                                    <div class="block-box small"></div>
+                                </div>
+                                <span>Galleria</span>
+                            </div>
+                            <div class="block-item" draggable="true" data-block="pricing">
+                                <div class="block-preview grid-3 dark">
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                    <div class="block-box small light"></div>
+                                </div>
+                                <span>Prezzi</span>
                             </div>
                             <div class="block-item" draggable="true" data-block="footer">
                                 <div class="block-preview footer"></div>
@@ -187,7 +301,18 @@
                                 <i class="bi bi-calendar-event"></i>
                                 <span>Evento</span>
                             </button>
+                            <button class="template-item" data-template="business">
+                                <i class="bi bi-building"></i>
+                                <span>Azienda completa</span>
+                            </button>
                         </div>
+                    </div>
+
+                    <!-- Layers Tab -->
+                    <div class="tab-content" id="layers">
+                        <h3>Livelli della pagina</h3>
+                        <p class="tab-note">Clicca per selezionare, usa le frecce per riordinare.</p>
+                        <div id="layersList" class="layers-list"></div>
                     </div>
 
                     <!-- Settings Tab -->
@@ -217,6 +342,24 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="faviconUrl">Favicon (URL immagine)</label>
+                            <input type="text" id="faviconUrl" class="form-control" placeholder="https://esempio.it/favicon.png">
+                        </div>
+                        <div class="form-group">
+                            <label for="formEndpoint">Endpoint moduli (Formspree, Getform...)</label>
+                            <input type="text" id="formEndpoint" class="form-control" placeholder="https://formspree.io/f/xxxxxxx">
+                            <p class="tab-note" style="margin:.4rem 0 0;">Se compilato, ogni modulo esportato invia i dati lì.</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="animToggle"> Animazioni fade-in all'export
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="headCode">Codice extra in &lt;head&gt;</label>
+                            <textarea id="headCode" class="form-control" rows="3" placeholder="&lt;meta name=&quot;theme-color&quot; content=&quot;#2563eb&quot;&gt;"></textarea>
+                        </div>
+                        <div class="form-group">
                             <button class="btn btn-secondary" id="clearBtn" style="width:100%;">
                                 <i class="bi bi-trash3"></i>
                                 Svuota pagina
@@ -237,6 +380,13 @@
 
             <!-- Canvas -->
             <main class="canvas-container">
+                <div class="pages-bar">
+                    <div class="pages-chips" id="pagesChips"></div>
+                    <button class="btn btn-secondary btn-sm" id="addPageBtn" title="Aggiungi pagina">
+                        <i class="bi bi-plus-lg"></i>
+                        Pagina
+                    </button>
+                </div>
                 <div class="canvas-header">
                     <span class="canvas-title">Area di Lavoro</span>
                     <span class="canvas-subtitle">Trascina elementi qui · <span id="autosaveTag">salvataggio automatico attivo</span></span>
@@ -324,6 +474,45 @@
                     <i class="bi bi-magic"></i>
                     Genera
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code Modal -->
+    <div class="modal" id="codeModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Codice HTML della pagina</h3>
+                <button class="modal-close" id="codeClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="tab-note">Modifica il codice e applica: il canvas si aggiorna.</p>
+                <textarea id="codeArea" class="form-control code-area" rows="18" spellcheck="false"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="codeCopy"><i class="bi bi-clipboard"></i> Copia</button>
+                <button class="btn btn-primary" id="codeApply"><i class="bi bi-check2"></i> Applica</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Scorciatoie tastiera</h3>
+                <button class="modal-close" id="helpClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="help-list">
+                    <li><kbd>Ctrl</kbd>+<kbd>Z</kbd> Annulla</li>
+                    <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> Ripristina</li>
+                    <li><kbd>Ctrl</kbd>+<kbd>S</kbd> Salva progetto</li>
+                    <li><kbd>Ctrl</kbd>+<kbd>E</kbd> Apri codice</li>
+                    <li><kbd>Esc</kbd> Deseleziona / chiudi finestre</li>
+                    <li><kbd>Delete</kbd> Cancella elemento selezionato</li>
+                    <li><kbd>?</kbd> Mostra questa guida</li>
+                </ul>
             </div>
         </div>
     </div>

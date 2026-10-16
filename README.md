@@ -54,19 +54,27 @@ Dettagli completi in [`DEPLOY.md`](DEPLOY.md).
 ## Funzionalità
 
 ### Editor
+- **Pagine multiple**: crea, rinomina ed elimina pagine; il sito esportato le include tutte con i link ricomposti
+- **Pannello Livelli**: vedi tutti gli elementi della pagina, selezionali e riordinali con le frecce
+- **Vista codice**: apri l'HTML della pagina, modificalo e riapplicalo al canvas (`Ctrl+E`)
+- **Tema scuro** per l'interfaccia dell'editor
 - **Undo / Redo** illimitati (60 passi): `Ctrl+Z` e `Ctrl+Shift+Z`
 - **Salvataggio automatico** nel browser: chiudi la tab e riapri, il progetto è ancora lì
 - **Esporta / importa progetto** (`.webbuilder.json`) per spostarlo su un altro computer
-- **Modelli pronti**: Landing, Portfolio, Ristorante, Evento — un clic e hai un sito finito
+- **Modelli pronti**: Landing, Portfolio, Ristorante, Evento, Azienda — un clic e hai un sito finito
 - **Riordino**: trascina al punto giusto (c'è una linea che ti mostra dove finirà) oppure usa le frecce su/giù
-- **Pannello Stile reale**: colore, dimensione, allineamento, grassetto/corsivo, sfondo, padding, margine, arrotondamento, bordo, URL immagine, destinazione link — tutto in tempo reale
-- **Elementi base**: titoli, testo, pulsanti, immagini, video, colonne, link, liste, moduli, separatori, spazi
-- **Blocchi pronti**: Hero, Caratteristiche, Contatti, Galleria, Prezzi, Footer
+- **Pannello Stile reale**: colore, dimensione, allineamento, grassetto/corsivo, sfondo, sfumatura, padding, margine, arrotondamento, bordo, URL immagine, destinazione link — tutto in tempo reale
+- **Barra testo flottante**: evidenziando un testo compaiono grassetto, corsivo, colore e allineamento
+- **Cerca elementi**: filtra rapidamente elementi e blocchi dalla sidebar
+- **Elementi base**: titoli, testo, pulsanti, immagini, video, colonne, link, liste, moduli, separatori, spazi, badge, citazioni, blocchi di codice, mappe
+- **Blocchi pronti**: Navbar, Hero, Caratteristiche, Numeri, Recensioni, Team, FAQ, CTA, Newsletter, Conto alla rovescia, Contatti, Galleria, Prezzi, Footer
 - **Modifica inline**: clicca e scrivi direttamente sugli elementi
 - **Duplica / elimina** con un clic
 - **Anteprima responsive**: desktop, tablet e telefono nel modale di anteprima
-- **Esportazione**: HTML singolo o ZIP completo (con il progetto dentro per riaprirlo dopo)
+- **Esportazione**: HTML singolo o ZIP multipagina (con favicon, codice `<head>` extra, endpoint moduli e animazioni fade-in opzionali)
+- **Upload immagini** direttamente nel pannello stile (codificato in base64)
 - **Editor usabile anche da smartphone** (il pannello laterale si nasconde)
+- **Scorciatoie tastiera**: `?` mostra la guida completa
 
 ### AI (opzionale, gratis)
 - **Generazione AI**: descrivi il sito e Ollama lo crea — locale, offline
