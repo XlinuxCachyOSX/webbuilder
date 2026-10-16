@@ -53,14 +53,23 @@ Dettagli completi in [`DEPLOY.md`](DEPLOY.md).
 
 ## Funzionalità
 
-- **Generazione AI**: descrivi il sito e Ollama lo crea — locale, gratis, offline
-- **Elementi base**: titoli, testo, pulsanti, immagini, link, liste, moduli, separatori, contenitori
-- **Blocchi pronti**: Hero, Caratteristiche, Contatti, Footer
+### Editor
+- **Undo / Redo** illimitati (60 passi): `Ctrl+Z` e `Ctrl+Shift+Z`
+- **Salvataggio automatico** nel browser: chiudi la tab e riapri, il progetto è ancora lì
+- **Esporta / importa progetto** (`.webbuilder.json`) per spostarlo su un altro computer
+- **Modelli pronti**: Landing, Portfolio, Ristorante, Evento — un clic e hai un sito finito
+- **Riordino**: trascina al punto giusto (c'è una linea che ti mostra dove finirà) oppure usa le frecce su/giù
+- **Pannello Stile reale**: colore, dimensione, allineamento, grassetto/corsivo, sfondo, padding, margine, arrotondamento, bordo, URL immagine, destinazione link — tutto in tempo reale
+- **Elementi base**: titoli, testo, pulsanti, immagini, video, colonne, link, liste, moduli, separatori, spazi
+- **Blocchi pronti**: Hero, Caratteristiche, Contatti, Galleria, Prezzi, Footer
 - **Modifica inline**: clicca e scrivi direttamente sugli elementi
-- **Controlli elemento**: modifica, duplica, elimina
-- **Impostazioni pagina**: titolo, descrizione SEO, sfondo, font
-- **Anteprima** in tempo reale
-- **Esportazione**: HTML singolo o ZIP completo
+- **Duplica / elimina** con un clic
+- **Anteprima responsive**: desktop, tablet e telefono nel modale di anteprima
+- **Esportazione**: HTML singolo o ZIP completo (con il progetto dentro per riaprirlo dopo)
+- **Editor usabile anche da smartphone** (il pannello laterale si nasconde)
+
+### AI (opzionale, gratis)
+- **Generazione AI**: descrivi il sito e Ollama lo crea — locale, offline
 
 ## Screenshot
 

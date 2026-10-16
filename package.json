@@ -1,8 +1,8 @@
 {
   "name": "webbuilder",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Creatore di siti web drag & drop con generazione AI locale (Ollama). Zero dipendenze a runtime.",
+  "description": "Creatore di siti web drag & drop con undo/redo, salvataggio automatico, modelli pronti e generazione AI locale (Ollama). Zero dipendenze a runtime.",
   "keywords": [
     "website-builder",
     "drag-and-drop",

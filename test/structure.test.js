@@ -23,6 +23,8 @@ test('gli ID usati da app.js esistono in index.html', () => {
     'canvas', 'previewBtn', 'downloadBtn', 'exportAllBtn',
     'aiBtn', 'aiModal', 'aiGenerate', 'aiModel', 'aiPrompt',
     'aiRefresh', 'aiStatus', 'aiAppend',
+    'undoBtn', 'redoBtn', 'saveProjectBtn', 'openProjectBtn', 'importFile',
+    'styleEditor', 'clearBtn', 'sidebarBtn', 'autosaveTag', 'templates',
   ];
   for (const id of ids) {
     assert.ok(
@@ -30,6 +32,14 @@ test('gli ID usati da app.js esistono in index.html', () => {
       `manca id="${id}" in index.html`
     );
   }
+});
+
+test('le nuove funzioni base sono presenti in app.js', () => {
+  assert.match(js, /function undo\(/);
+  assert.match(js, /function redo\(/);
+  assert.match(js, /webbuilder:project:v1/);
+  assert.match(js, /function renderStylePanel\(/);
+  assert.match(js, /TEMPLATES/);
 });
 
 test('i tag principali del canvas sono presenti', () => {

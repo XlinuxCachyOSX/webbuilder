@@ -19,6 +19,25 @@
                 <span>WebBuilder</span>
             </div>
             <div class="header-actions">
+                <button class="btn btn-icon" id="sidebarBtn" title="Mostra/nascondi pannello">
+                    <i class="bi bi-layout-sidebar"></i>
+                </button>
+                <button class="btn btn-icon" id="undoBtn" title="Annulla (Ctrl+Z)" disabled>
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                </button>
+                <button class="btn btn-icon" id="redoBtn" title="Ripristina (Ctrl+Shift+Z)" disabled>
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <span class="btn-divider"></span>
+                <button class="btn btn-secondary" id="openProjectBtn" title="Apri un progetto .webbuilder.json">
+                    <i class="bi bi-folder2-open"></i>
+                    Apri
+                </button>
+                <button class="btn btn-secondary" id="saveProjectBtn" title="Salva il progetto (Ctrl+S)">
+                    <i class="bi bi-save"></i>
+                    Salva
+                </button>
+                <span class="btn-divider"></span>
                 <button class="btn btn-ai" id="aiBtn">
                     <i class="bi bi-stars"></i>
                     Genera con AI
@@ -29,11 +48,11 @@
                 </button>
                 <button class="btn btn-secondary" id="downloadBtn">
                     <i class="bi bi-download"></i>
-                    Scarica HTML
+                    HTML
                 </button>
                 <button class="btn btn-primary" id="exportAllBtn">
                     <i class="bi bi-file-earmark-zip"></i>
-                    Esporta Completo
+                    ZIP
                 </button>
             </div>
         </header>
@@ -49,6 +68,10 @@
                     <button class="nav-btn" data-tab="blocks">
                         <i class="bi bi-layout-text-sidebar"></i>
                         Blocchi
+                    </button>
+                    <button class="nav-btn" data-tab="templates">
+                        <i class="bi bi-window-stack"></i>
+                        Modelli
                     </button>
                     <button class="nav-btn" data-tab="settings">
                         <i class="bi bi-gear"></i>
@@ -143,6 +166,30 @@
                         </div>
                     </div>
 
+                    <!-- Templates Tab -->
+                    <div class="tab-content" id="templates">
+                        <h3>Modelli completi</h3>
+                        <p class="tab-note">Un clic e la pagina diventa un sito finito. Poi lo modifichi come vuoi.</p>
+                        <div class="template-list">
+                            <button class="template-item" data-template="landing">
+                                <i class="bi bi-rocket-takeoff"></i>
+                                <span>Landing prodotto</span>
+                            </button>
+                            <button class="template-item" data-template="portfolio">
+                                <i class="bi bi-camera"></i>
+                                <span>Portfolio</span>
+                            </button>
+                            <button class="template-item" data-template="ristorante">
+                                <i class="bi bi-cup-hot"></i>
+                                <span>Ristorante</span>
+                            </button>
+                            <button class="template-item" data-template="evento">
+                                <i class="bi bi-calendar-event"></i>
+                                <span>Evento</span>
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Settings Tab -->
                     <div class="tab-content" id="settings">
                         <h3>Impostazioni Pagina</h3>
@@ -165,8 +212,17 @@
                                 <option value="Arial">Arial</option>
                                 <option value="Roboto">Roboto</option>
                                 <option value="Poppins">Poppins</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Roboto Mono">Roboto Mono</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <button class="btn btn-secondary" id="clearBtn" style="width:100%;">
+                                <i class="bi bi-trash3"></i>
+                                Svuota pagina
+                            </button>
+                        </div>
+                        <p class="tab-note">Il progetto viene salvato da solo nel browser: chiudi e riapri, è ancora lì.</p>
                     </div>
 
                     <!-- Style Tab -->
@@ -183,7 +239,7 @@
             <main class="canvas-container">
                 <div class="canvas-header">
                     <span class="canvas-title">Area di Lavoro</span>
-                    <span class="canvas-subtitle">Trascina elementi qui</span>
+                    <span class="canvas-subtitle">Trascina elementi qui · <span id="autosaveTag">salvataggio automatico attivo</span></span>
                 </div>
                 <div class="canvas" id="canvas" contenteditable="false">
                     <div class="empty-state">
@@ -196,27 +252,16 @@
         </div>
     </div>
 
-    <!-- Element Editor Modal -->
-    <div class="modal" id="elementModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Modifica Elemento</h3>
-                <button class="modal-close" id="modalClose">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" id="modalCancel">Annulla</button>
-                <button class="btn btn-primary" id="modalSave">Salva</button>
-            </div>
-        </div>
-    </div>
-
     <!-- Preview Modal -->
     <div class="modal preview-modal" id="previewModal">
         <div class="modal-content large">
             <div class="modal-header">
                 <h3>Anteprima</h3>
+                <div class="device-bar">
+                    <button class="device-btn active" data-device="desktop" title="Desktop"><i class="bi bi-display"></i></button>
+                    <button class="device-btn" data-device="tablet" title="Tablet"><i class="bi bi-tablet"></i></button>
+                    <button class="device-btn" data-device="mobile" title="Telefono"><i class="bi bi-phone"></i></button>
+                </div>
                 <button class="modal-close" id="previewModalClose">&times;</button>
             </div>
             <div class="modal-body preview-body">
@@ -224,6 +269,8 @@
             </div>
         </div>
     </div>
+
+    <input type="file" id="importFile" accept=".json,application/json" hidden>
 
     <!-- AI Generator Modal -->
     <div class="modal" id="aiModal">
